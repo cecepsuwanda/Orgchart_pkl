@@ -1,55 +1,45 @@
--- phpMyAdmin SQL Dump
--- version 4.8.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Jan 27, 2020 at 07:45 AM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+/*
+SQLyog Community v13.1.5  (64 bit)
+MySQL - 8.0.17 : Database - tree
+*********************************************************************
+*/
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+/*!40101 SET NAMES utf8 */;
 
+/*!40101 SET SQL_MODE=''*/;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`tree` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
---
--- Database: `tree`
---
+USE `tree`;
 
--- --------------------------------------------------------
+/*Table structure for table `users` */
 
---
--- Table structure for table `users`
---
+DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
-  `user` varchar(255) NOT NULL,
-  `parent` int(11) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `img` varchar(100) DEFAULT NULL,
+  `pid` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `users`
---
+/*Data for the table `users` */
 
-INSERT INTO `users` (`user`, `parent`) VALUES
-('Edwin Syafriana Randy', 0),
-('Faiz', 1),
-('Project manager', 1),
-('Team Lead', 2),
-('Team Lead', 2),
-('Sr. Dev', 4),
-('Sr. Dev', 9),
-('Dev', 12),
-('Team Lead', 3),
-('Team Lead', 3);
-COMMIT;
+insert  into `users`(`id`,`name`,`title`,`email`,`img`,`pid`) values 
+(1,'Edwin Syafriana Randy','Chairman and CEO','amber@domain.com','images/1.png',0),
+(2,'Faiz','QA Lead','ava@domain.com','images/2.png',1),
+(3,'Mila','Technical Director',NULL,'images/2.png',1),
+(4,'Mitha','Manager','ay@domain.com','images/2.png',3),
+(5,'Amelia','QA',NULL,'images/2.png',2);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
