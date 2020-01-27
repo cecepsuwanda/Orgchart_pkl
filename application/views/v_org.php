@@ -1,11 +1,12 @@
 <html>
 <head>
-    <title>orgChart</title>
+    <title><?php echo $title; ?></title>
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet">
     <script src="js/orgChart.js"></script>
     
 </head>
 <body onload="blockFirstDelButton()">
+ 
   <h3 align="center">Org-Chart</h3>
     <div id="orgChartContainer">
       <div id="orgChart"></div>
@@ -44,14 +45,15 @@ window.onload = function () {
             img_0: "img"
         },
       
-        nodes: [
+        nodes:  <?php echo json_encode($database);?>
+        /*[
             { id: "1", name: "Edwin Syafriana Randy", title: "Chairman and CEO", email: "amber@domain.com", img: "images/1.png" },
             { id: "2", pid: "1", name: "Faiz", title: "QA Lead", email: "ava@domain.com", img: "images/2.png" },
             { id: "3", pid: "1", name: "Mila", title: "Technical Director", img: "images/2.png" },
             { id: "4", pid: "3", name: "Mitha", title: "Manager", email: "jay@domain.com", img: "images/2.png" },
             { id: "5", pid: "2", name: "Amelia", title: "QA", img: "images/2.png" },
            
-        ]
+        ]*/
     });
 
     function preview(){

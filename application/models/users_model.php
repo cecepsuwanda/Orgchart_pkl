@@ -20,6 +20,6 @@ class users_model extends CI_Model {
 
 	public function getallUsers()
 	{
-		return $this->db->get('users');
+		return $this->db->get('users')->result();
 	}
 }

@@ -12,7 +12,8 @@ class c_chart extends CI_Controller {
 
 	function getuser(){
 		$data['getuser']=$this->users_model->getallUsers()->result();
-		$this->load->view('v_org',$data);
+		
+		//$this->load->view('v_org',$data);
 	}
 
 	public function lihatdata()
